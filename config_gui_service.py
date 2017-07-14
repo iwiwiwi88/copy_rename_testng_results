@@ -2,6 +2,7 @@
 
 import tkinter as tk
 import config_service as cs
+import copy_test_results as cts
 
 def present_user_config_form():
     root=tk.Tk()
@@ -32,9 +33,9 @@ def add_labels(root):
     tk.Label(root, text="Destination directory").grid(row=1)
     tk.Label(root, text="File name").grid(row=2)
 
-
 def generate_config(root, source_path, destination_path, file_name):
     cs.create_config_file(source_path, destination_path, file_name)
     quit_win(root)
+    cts.run()
    
-#present_user_config_form()
+present_user_config_form()
