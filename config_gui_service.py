@@ -37,5 +37,6 @@ def generate_config(root, source_path, destination_path, file_name):
     cs.create_config_file(source_path, destination_path, file_name)
     quit_win(root)
     cts.run()
-   
-present_user_config_form()
+
+if __name__ == '__main__':
+    present_user_config_form()
