@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-import os
+import os, sys
 from cx_Freeze import setup, Executable
 
-pythonFolder='C:\\Users\\'+os.getlogin()+'\\AppData\\Local\\Continuum\\Anaconda3\\'
+pythonExePath = os.path.split(sys.executable)
+pythonFolder=pythonExePath[0]+'\\'
 os.environ['TCL_LIBRARY'] = pythonFolder+'tcl\\tcl8.6'
 os.environ['TK_LIBRARY'] = pythonFolder+'tcl\\tk8.6'
 includes      = []
