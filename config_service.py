@@ -14,7 +14,7 @@ def config_file_exists():
     return config_path.exists()
 
 def config_file_is_valid():
-    reg=r"in_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]out_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]file_name=[\w\-. ]+$"
+    reg=r"source_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]destination_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]file_name=[\w\-. ]+$"
     with open(config_path, 'r') as file:
         content = file.read()
         match = re.search(reg, content)
@@ -28,8 +28,8 @@ def read_properties():
                 props[name.strip()] = value.strip()
     return props
     
-def create_config_file(in_path, out_path, file_name):
-    properties = "in_path="+in_path+"\nout_path="+out_path+"\nfile_name="+file_name
+def create_config_file(source_path, destination_path, file_name):
+    properties = "source_path="+source_path+"\ndestination_path="+destination_path+"\nfile_name="+file_name
     fs.write_to_file(config_path, properties)
     
 def should_config_file_be_recreated():

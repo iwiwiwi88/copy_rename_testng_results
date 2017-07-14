@@ -28,13 +28,13 @@ def create_file_name(file_path):
     formatted_file_name = get_creation_date(file_path)+get_results_status(file_path)
     return formatted_file_name+'.html'
 
-def copy_results_file_and_rename(in_path, out_path, old_name, new_name):
-    path_before_rename = Path(out_path+old_name)
-    path_after_rename = Path(out_path+new_name)
+def copy_results_file_and_rename(source_path, destination_path, old_name, new_name):
+    path_before_rename = Path(destination_path+old_name)
+    path_after_rename = Path(destination_path+new_name)
     if path_after_rename.exists():
         return 1
     else:
-        shutil.copyfile(in_path,out_path+old_name)
+        shutil.copyfile(source_path,destination_path+old_name)
         return rename_file(path_before_rename, path_after_rename)
     
 def rename_file(old_path, new_path):
