@@ -14,9 +14,9 @@ def quit_win(root):
     root.destroy()
     
 def add_buttons(root):
-    tk.Button(root,text="Config", command= lambda: cofnigure(root)).pack()
+    tk.Button(root,text="Config", command= lambda: configure(root)).pack()
     tk.Button(root,text="Close", command= lambda: quit_win(root)).pack()
     
 def configure(root):
-    
+    return True
 

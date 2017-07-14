@@ -14,7 +14,7 @@ def config_file_exists():
     return config_path.exists()
 
 def config_file_is_valid():
-    reg=r"source_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]destination_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]file_name=[\w\-. ]+$"
+    reg=r"source_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]destination_path=[A-Za-z]:\\([a-zA-Z0-9\-\_\\]+)[\n]file_name=[\w\-. ]+.html$"
     with open(config_path, 'r') as file:
         content = file.read()
         match = re.search(reg, content)
@@ -38,3 +38,7 @@ def should_config_file_be_recreated():
     return True
 
 
+#print(should_config_file_be_recreated())
+#print(config_file_exists())
+#if(config_file_is_valid()):
+#    print(True)
