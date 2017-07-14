@@ -42,8 +42,7 @@ def add_buttons(root, folder, file):
     tk.Button(root,text="Open folder", command= lambda: open_folder(folder,root)).pack()
     tk.Button(root,text="Close", command= lambda: quit_win(root)).pack()
     
-def open_in_browser(path, root):
-    url = path
+def open_in_browser(url, root):
     wb.open(url,new=2)
     quit_win(root)
     
