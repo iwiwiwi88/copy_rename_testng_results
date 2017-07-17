@@ -16,13 +16,21 @@ def get_creation_date(file_path):
     stripped_date = datetime.datetime.strptime(modified_date, "%a %b %d %H:%M:%S %Y")
     formatted_date = stripped_date.strftime("%y%m%d_%H%M%S")
     return str(formatted_date)
-    
+
 def get_results_status(file_path):
     with open(file_path, 'r') as file:
         lines=file.read()
         pass_count = lines.count('class="pass')
         fail_count = lines.count('class="fail')
-    return "_P_"+str(pass_count)+"_F_"+str(fail_count)
+        skip_count = lines.count('class="skip')
+    return "_P_"+str(pass_count)+"_F_"+str(fail_count)+skip_part(skip_count)
+
+def skip_part(skip_count):
+    if (skip_count>0):
+        return "_S_"+str(skip_count)
+    else:
+        return ""
+           
 
 def create_file_name(file_path):
     formatted_file_name = get_creation_date(file_path)+get_results_status(file_path)
