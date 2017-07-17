@@ -9,10 +9,15 @@ os.environ['TK_LIBRARY'] = pythonFolder+'tcl\\tk8.6'
 includes      = []
 include_files = [pythonFolder+'DLLs\\tcl86t.dll', \
                  pythonFolder+'DLLs\\tk86t.dll']
+target = Executable(
+    script="copy_test_results.py",
+    base="Win32GUI",
+    icon="icon.ico"
+    )
 
 setup(
       name = "CopyTestResults",
       version = "1.0",
       description = "Automation results copy and rename",
       options = {"build_exe": {"includes": includes, "include_files": include_files}},
-      executables = [Executable("copy_test_results.py", base = "Win32GUI")])
+      executables = [target])
