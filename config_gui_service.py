@@ -36,13 +36,13 @@ def add_labels(root):
 
 def browse_file(entry):
     directory = filedialog.askopenfilename()
+    entry.delete(0,tk.END)
     entry.insert(0,directory)
-    print(entry.get())
     
 def browse_folder(entry):
     directory = filedialog.askdirectory()
+    entry.delete(0,tk.END)
     entry.insert(0,directory)
-    print(entry.get())
     
 def generate_config(root, source_path, destination_path):
     file_regex = '[\w\-. ]+.html$'
