@@ -29,7 +29,7 @@ def read_properties():
     return props
     
 def create_config_file(source_path, destination_path, file_name):
-    properties = "source_path="+source_path+"\ndestination_path="+destination_path+"\nfile_name="+file_name
+    properties = "source_path="+source_path.replace("/","\\")+"\ndestination_path="+destination_path.replace("/","\\")+"\nfile_name="+file_name
     fs.write_to_file(config_path, properties)
     
 def should_config_file_be_recreated():
